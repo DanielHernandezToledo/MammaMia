@@ -1,0 +1,9 @@
+@media (max-width: 768px) {
+  .modal-producto{
+    flex-direction: column;
+  }
+
+  .img-modal-producto{
+    height: 100px;
+  }
+}

@@ -8,10 +8,10 @@ export default function ModalProduct() {
   const [cantidad, setCantidad] = useState(1)
 
   return (
-    <div className='row'>
-      <div className='col-5' style={{ backgroundImage: `url(${pizza.img})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
+    <div className='row m-0'>
+      <div className='col-3 col-md-5' style={{ backgroundImage: `url(${pizza.img})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
       </div>
-      <div className='col-7'>
+      <div className='col-9 col-md-7'>
         <Modal.Header closeButton className='border-0 text-capitalize pb-0'>
           <Modal.Title>{pizza.name}</Modal.Title>
         </Modal.Header>

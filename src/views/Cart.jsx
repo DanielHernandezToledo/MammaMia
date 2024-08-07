@@ -17,20 +17,20 @@ export default function Cart() {
       {carrito.length === 0 ? (
             <div className="container d-flex flex-column gap-3 align-items-center">
             <h2 className="text-center">No hay pizzas seleccionadas</h2>
-            <img src="/img/NoSelected.webp" alt="Sin pizzas seleccionadas" className="w-25"/>
+            <img src="/img/NoSelected.webp" alt="Sin pizzas seleccionadas" style={{ height: "25" }} />
             <NavLink className="btn btn-warning rounded w-25" to={'/Home'}>Eligelas Aquí</NavLink>
           </div>
       ) : (
         <div className='bg-light py-5 px-4'>
           <h3 className='pb-1'>Detalle del pedido:</h3>
-          <div className='bg-white py-3'>
+          <div className='bg-white p-3'>
             {carrito.map((pizza) => (
-            <div key={pizza.id} className="d-flex justify-content-between px-3 py-3">
-              <div className="d-flex align-items-center gap-2">
+            <div key={pizza.id} className="row justify-content-between py-3">
+              <div className="col-md-6 d-flex align-items-center gap-2">
                 <img src={pizza.img} style={{ width: '60px' }} alt="" />
-                <h5 className='m-0'>{pizza.name}</h5>
+                <h5 className='m-0 fw-bold text-capitalize'>{pizza.name}</h5>
               </div>
-              <div className='d-flex gap-2 align-items-center'>
+              <div className='col-md-6 d-flex gap-2 justify-content-end align-items-center'>
                 <p className='m-0 fw-bold text-warning'>{formatearDinero(pizza.price * pizza.cantidad )}</p>
                 <button
                   className="btn btn-danger rounded"
@@ -43,9 +43,9 @@ export default function Cart() {
                   +
                 </button>
               </div>
+              <hr className='mt-2 mb-0' />
             </div>
             ))}
-            <hr className='m-0 mx-3' />
             <h4 className='pt-3 pb-0 ms-3'>Total: <span className='text-warning fw-bold'>{formatearDinero(total)}</span></h4>
             <div className="d-flex justify-content-between">
             <button

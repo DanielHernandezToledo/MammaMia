@@ -16,7 +16,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="home-image ">
+      <div className="home-image">
         <div className="overlay d-flex align-items-center">
           <div className="container  flex-column justify-content-center">
             <h1 className='text-white'>¡Pizzería Mamma Mia!</h1>
