@@ -7,7 +7,7 @@ export default function ModalEliminar() {
   const {handleEliminarPizza, handleClickModalEliminar, pizza} = useVentas()
 
   return (
-    <>
+    <div className='m-0'>
       <Modal.Header closeButton className='border-0 text-capitalize pb-0'>
         <Modal.Title>¿Eliminar Pizza?</Modal.Title>
       </Modal.Header>
@@ -19,6 +19,6 @@ export default function ModalEliminar() {
       <Button variant="danger w-50 rounded" onClick={() => {handleEliminarPizza(pizza.id);handleClickModalEliminar()}}>Eliminar</Button>
       </div>
       </Modal.Body>
-  </>
+  </div>
   )
 }
