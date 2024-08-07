@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import pizzasData from "../data/pizzas.json";
+import { toast } from "react-toastify";
 
 
 const VentasContext = createContext();
@@ -42,8 +43,10 @@ const VentasProvider = ({ children }) => {
     if (carrito.some(pizzaState => pizzaState.id === producto.id)) {
       const carritoActualizado = carrito.map(pizzaState => pizzaState.id === pizza.id ? producto : pizzaState)
       setCarrito(carritoActualizado)
+      toast.success('Pedido agregado, revisa tu carrito!')
     } else {
       setCarrito([...carrito, producto])
+      toast.success('Pedido agregado, revisa tu carrito!')
     }
   }
 
@@ -71,6 +74,11 @@ const VentasProvider = ({ children }) => {
   const handleEliminarPizza = (id) => {
     const actializarCarrito = carrito.filter(pizzaState => pizzaState.id !== id)
     setCarrito(actializarCarrito)
+    toast.error('Eliminado del Pedido')
+  }
+
+  const handleEliminarTodo = () => {
+    setCarrito([])
   }
 
   return (
@@ -90,6 +98,7 @@ const VentasProvider = ({ children }) => {
         handleDisminuirCantidad,
         handleAumentarCantidad,
         handleEliminarPizza,
+        handleEliminarTodo
       }}
     >
       {children}

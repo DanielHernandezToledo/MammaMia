@@ -8,6 +8,8 @@ import ModalProduct from './components/ModalProduct'
 import { Modal } from 'react-bootstrap'
 import ModalEliminar from './components/ModalEliminar'
 import NotFound from './views/NotFound'
+import { ToastContainer } from 'react-toastify'
+import "react-toastify/dist/ReactToastify.css"
 
 
 function App() {
@@ -37,6 +39,10 @@ function App() {
       >
         <ModalEliminar />
       </Modal>
+
+      <ToastContainer
+        position="bottom-right"
+      />
     </>
   )
 }

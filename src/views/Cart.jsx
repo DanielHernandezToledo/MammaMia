@@ -2,12 +2,15 @@ import React from 'react'
 import useVentas from '../hooks/useVentas'
 import { formatearDinero } from '../helpers'
 import { NavLink } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 export default function Cart() {
 
-  const { carrito, total, handleDisminuirCantidad, handleAumentarCantidad } = useVentas()
+  const { carrito, total, handleDisminuirCantidad, handleAumentarCantidad, handleEliminarTodo } = useVentas()
 
-
+  const handleClickPagar = () => {
+    toast.success('Compra realizada con éxito!')
+  }
 
   return (
     <div className="my-5 container">
@@ -45,8 +48,18 @@ export default function Cart() {
             <hr className='m-0 mx-3' />
             <h4 className='pt-3 pb-0 ms-3'>Total: <span className='text-warning fw-bold'>{formatearDinero(total)}</span></h4>
             <div className="d-flex justify-content-between">
-            <button className="btn btn-success rounded ms-3">Pagar</button>
-            <NavLink className="btn btn-warning rounded me-3" to={'/Home'}>Inicio</NavLink>
+            <button
+              onClick={() => {handleClickPagar(); handleEliminarTodo()}}
+              className="btn btn-success rounded ms-3"
+            >
+              Pagar
+            </button>
+            <NavLink
+              className="btn btn-warning rounded me-3"
+              to={'/Home'}
+            >
+              Seguir Comprando
+            </NavLink>
             </div>
           </div>
         </div>
